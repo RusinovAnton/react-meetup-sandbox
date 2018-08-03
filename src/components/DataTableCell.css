@@ -1,0 +1,8 @@
+.DataTableCell {
+  flex-basis: 300px;
+  padding: 10px;
+}
+
+.DataTableCell--header {
+  background-color: #ccc;
+}

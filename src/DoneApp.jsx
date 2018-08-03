@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { repoInsightsTypes } from './types';
-import DataTable from './components/DataTable';
+import DataTable from './done_components/DataTable';
 
 import './App.css';
 
 class App extends Component {
   static propTypes = {
-    initialData: PropTypes.arrayOf(PropTypes.shape(repoInsightsTypes))
+    data: PropTypes.arrayOf(PropTypes.shape(repoInsightsTypes))
   };
 
   state = {
@@ -25,7 +25,7 @@ class App extends Component {
       this.setState(state => {
         return {
           ...state,
-          selectedRows: new Set(state.selectedRows).add([id])
+          selectedRows: new Set(state.selectedRows).add(id)
         };
       });
     } else {
@@ -45,7 +45,7 @@ class App extends Component {
         <DataTable
           selectedRows={selectedRows}
           columns={this.state.columns}
-          data={this.props.initialData}
+          data={this.props.data}
           onSelect={this.handleRowSelect}
         />
       </div>

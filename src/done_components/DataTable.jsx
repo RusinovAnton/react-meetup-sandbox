@@ -34,7 +34,7 @@ class DataTable extends Component {
           return (
             <DataTableRow
               key={row.id}
-              isSelected={selectedRows.indexOf(row.id) !== -1}
+              isSelected={selectedRows.has(row.id)}
               data={row}
               columns={columns}
               onClick={this.handleRowSelect}
