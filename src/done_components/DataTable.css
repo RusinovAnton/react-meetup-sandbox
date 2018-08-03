@@ -1,0 +1,15 @@
+.DataTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.DataTable__header,
+.DataTable__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.DataTable__cell {
+  flex-basis: 300px;
+}

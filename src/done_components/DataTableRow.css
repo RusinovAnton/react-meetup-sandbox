@@ -1,0 +1,8 @@
+.DataTable__row {
+  padding: 10px;
+  border: 1px solid #0c0c0c;
+}
+
+.DataTable__row--selected {
+  background: #fc0;
+}
