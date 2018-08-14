@@ -1,27 +1,34 @@
-import React, { Component, PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import './App.css';
 
 class App extends Component {
+  static displayName = 'App';
+  static propTypes = {};
+
   state = {
-    data: [],
-    isLoading: true
+    date: null,
+    value: null
   };
 
   componentDidMount() {
-    fetch('/data').then(response => {
-      this.setState({
-        data: [...this.state.data, ...response.data],
-        isLoading: false
-      });
-    });
+    this.beginValueUpdate();
+  }
+
+  beginValueUpdate() {
+    this.intervalToken = window.setInterval(() => {
+      this.setState({ date: Date.now(), value: Math.random() });
+    }, 1000);
   }
 
   render() {
-    const { data, isLoading } = this.state;
+    const { value, date } = this.state;
+    if (!value) return null;
 
-    if (isLoading) return <Loader />;
-
-    return <div>{data.map(element => <Element />)}</div>;
+    return (
+      <div key={date} className="animatable">
+        {value}
+      </div>
+    );
   }
 }
 
